@@ -11,6 +11,8 @@ class JaccardLoss(nn.Module):
 
     This implementation allows for the introduction of a weighting which chooses how the Jaccard loss is weighed according to the losses of the individual classes in the label
     For context, a lot of this code was taken from https://github.com/hannahg141/ClimateNet/blob/main/climatenet/utils/losses.py
+
+    (N, C, H, W) corresponds to (Number of samples, Class size, Height, Width)
     
     """
     def __init__(self):
@@ -126,6 +128,8 @@ class DiceLoss(nn.Module):
 
     This implementation allows for the introduction of a weighting which chooses how the Dice loss is weighed according to the losses of the individual classes in the label
     For context, a lot of this code was taken from https://github.com/hannahg141/ClimateNet/blob/main/climatenet/utils/losses.py
+
+    (N, C, H, W) corresponds to (Number of samples, Class size, Height, Width)
     
     """
     def __init__(self):
