@@ -6,6 +6,7 @@ import os
 from climax.global_forecast.datamodule import GlobalForecastDataModule
 from climax.global_forecast.module import GlobalForecastModule
 from pytorch_lightning.cli import LightningCLI
+os.environ['NCCL_P2P_DISABLE']='1'
 
 
 def main():
