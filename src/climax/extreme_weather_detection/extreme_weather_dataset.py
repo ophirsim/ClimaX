@@ -1,6 +1,7 @@
 from torch.utils.data import Dataset
 import os
 import numpy as np
+import torch
 
 class ExtremeWeatherDataset(Dataset):
     """
@@ -20,8 +21,8 @@ class ExtremeWeatherDataset(Dataset):
         Returns: None
         """
         
-        self.data = np.load(os.path.join(root_dir, "data.npy"))
-        self.labels = np.load(os.path.join(root_dir, "labels.npy"))
+        self.data = torch.from_numpy(np.load(os.path.join(root_dir, "data.npy")))
+        self.labels = torch.from_numpy(np.load(os.path.join(root_dir, "labels.npy")))
         self.transform = transform
         self.target_transform = target_transform
 

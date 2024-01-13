@@ -6,8 +6,6 @@ from typing import Optional
 
 from pytorch_lightning import LightningDataModule
 from torch.utils.data import DataLoader
-
-from climax.pretrain.datamodule import collate_fn
 from extreme_weather_dataset import ExtremeWeatherDataset
 
 
@@ -64,7 +62,6 @@ class ExtremeWeatherDataModule(LightningDataModule):
             drop_last=False,
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
-            collate_fn=collate_fn,
         )
 
     def val_dataloader(self):
@@ -76,7 +73,6 @@ class ExtremeWeatherDataModule(LightningDataModule):
             drop_last=False,
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
-            collate_fn=collate_fn,
         )
 
     def test_dataloader(self):
@@ -88,5 +84,4 @@ class ExtremeWeatherDataModule(LightningDataModule):
             drop_last=False,
             num_workers=self.hparams.num_workers,
             pin_memory=self.hparams.pin_memory,
-            collate_fn=collate_fn,
         )
