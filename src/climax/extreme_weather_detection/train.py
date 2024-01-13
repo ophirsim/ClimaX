@@ -3,7 +3,7 @@
 
 import os
 
-from climax.global_forecast.datamodule import GlobalForecastDataModule
+from datamodule import ExtremeWeatherDataModule
 from climax.global_forecast.module import GlobalForecastModule
 from pytorch_lightning.cli import LightningCLI
 os.environ['NCCL_P2P_DISABLE']='1'
@@ -13,7 +13,7 @@ def main():
     # Initialize Lightning with the model and data modules, and instruct it to parse the config yml
     cli = LightningCLI(
         model_class=GlobalForecastModule,
-        datamodule_class=GlobalForecastDataModule,
+        datamodule_class=ExtremeWeatherDataModule,
         seed_everything_default=42,
         save_config_overwrite=True,
         run=False,
